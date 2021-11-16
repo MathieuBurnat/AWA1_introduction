@@ -370,6 +370,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
 
+    <style>
+        .disabled {
+            visibility: hidden;
+        }
+    </style>
+
     <script>
         launchAnimation();
 
@@ -380,10 +386,20 @@
             animeDivs();
         }
 
-        function animeShapes() { // var targets = "#codeAscreen";
+        async function animeShapes() { 
+            await renderShapeScreen();
+            await renderShapeCode();
+        }
+
+        async function renderShapeScreen() {
+            console.log("Render shape : screen");
             var sScreen = "#shape-screen";
-            var sCode = "#shape-code";
-            // var targets = "#codegauche #codecentre #codedroite";
+
+            // Enable sScreen
+            // Disable sCode
+            document.getElementById("shape-code").classList.remove('disabled');
+            document.getElementById("shape-screen").classList.add('disabled');
+
 
             anime({
                 targets: sScreen + ' path',
@@ -398,6 +414,35 @@
                 direction: 'alternate',
                 loop: false
             });
+
+        }
+
+
+        async function renderShapeCode() {
+            console.log("Render shape : code");
+
+            var sCode = "#shape-code";
+
+            // Disable sScreen
+            // Enable sCode
+            document.getElementById("shape-code").classList.add('disabled');
+            document.getElementById("shape-screen").classList.remove('disabled');
+
+
+            anime({
+                targets: sCode + ' path',
+                strokeDashoffset: [
+                    anime.setDashoffset, 0
+                ],
+                easing: 'easeInOutSine',
+                duration: 1500,
+                delay: function (el, i) {
+                    return i * 1000
+                },
+                direction: 'alternate',
+                loop: false
+            });
+
         }
 
         function animeDivs() { // var divs = ".row .el";
