@@ -375,13 +375,18 @@
 
         function launchAnimation() {
             console.log("-- Launch animation --");
-            // var targets = "#codeAscreen";
-            var targets = "#shape-screen";
+
+            animeShapes();
+            animeDivs();
+        }
+
+        function animeShapes() { // var targets = "#codeAscreen";
+            var sScreen = "#shape-screen";
+            var sCode = "#shape-code";
             // var targets = "#codegauche #codecentre #codedroite";
 
-
             anime({
-                targets: targets + ' path',
+                targets: sScreen + ' path',
                 strokeDashoffset: [
                     anime.setDashoffset, 0
                 ],
@@ -391,7 +396,20 @@
                     return i * 1000
                 },
                 direction: 'alternate',
-                loop: true
+                loop: false
+            });
+        }
+
+        function animeDivs() { // var divs = ".row .el";
+            var divs = document.querySelectorAll('.row');
+
+            anime({
+                targets: divs,
+                translateX: [
+                    -100, 0
+                ],
+                delay: 100,
+                duration: 3000
             });
         }
     </script>
