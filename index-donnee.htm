@@ -381,34 +381,26 @@
         function launchAnimation() {
             console.log("-- Launch animation --");
 
-            animeShapes();
-            animeDivs();
-        }
-
-        function animeShapes() { // var targets = "#codeAscreen";
-
+            // Morphing
             TweenMax.to("#codegauche", 1, {
                 morphSVG: "#screengauche",
-                delay: 1
+                delay: 0.5
             });
             TweenMax.to("#codecentre", 1, {
                 morphSVG: "#screencentre",
-                delay: 1
+                delay: 0.5
             });
             TweenMax.to("#codedroite", 1, {
                 morphSVG: "#screendroite",
-                delay: 1
+                delay: 0.5
             });
 
+            // Display Title
             const tl = new TimelineLite();
-            TweenMax.staggerFrom(".box", 0.8, {
-                opacity: 0
-            }, 0.5);
-
             const split = new SplitText(document.getElementById("titre"));
 
             tl.from(split.chars, 1, {
-                duration: 0.8,
+                duration: 2,
                 opacity: 0,
                 scale: 0,
                 y: 80,
@@ -417,19 +409,10 @@
                 stagger: 0.01
             });
 
-        }
-
-        function animeDivs() { // var divs = ".row .el";
-            var divs = document.querySelectorAll('.row');
-
-            // anime({
-            //    targets: divs,
-            //    translateX: [
-            //        -100, 0
-            //    ],
-            //    delay: 100,
-            //    duration: 3000
-            // });
+            // Display divs
+            TweenMax.staggerFrom(".box", 2, {
+                opacity: 0
+            }, 1);
         }
     </script>
 
