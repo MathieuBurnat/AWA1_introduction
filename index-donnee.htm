@@ -443,11 +443,20 @@
     function planFormationButtonClicked() {
         // Display - or remove - the formation 
         if (formationPlanned) {
+            // Views
             document.getElementById("mainContent").style.display = 'block';
             document.getElementById("planf").style.display = 'none';
+
+            // Button
+            document.getElementById("planButton").innerHTML  = 'Plan de formation';
+  
         } else {
+            // Views
             document.getElementById("mainContent").style.display = 'none';
             document.getElementById("planf").style.display = 'block';
+            
+            // Button
+            document.getElementById("planButton").innerHTML  = 'x';
         }
 
         //Change the formationPlanned's state
