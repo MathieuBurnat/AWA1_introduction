@@ -441,22 +441,17 @@
 
     var formationPlanned = false;
     function planFormationButtonClicked() {
-        console.log("*Click noise*");
-
+        // Display - or remove - the formation 
         if (formationPlanned) {
             document.getElementById("mainContent").style.display = 'block';
             document.getElementById("planf").style.display = 'none';
-
-            formationPlanned = false;
         } else {
             document.getElementById("mainContent").style.display = 'none';
             document.getElementById("planf").style.display = 'block';
-
-            formationPlanned = true;
         }
 
-        console.log(formationPlanned);
-
+        //Change the formationPlanned's state
+        formationPlanned = !formationPlanned;
     }
 </script>
 
