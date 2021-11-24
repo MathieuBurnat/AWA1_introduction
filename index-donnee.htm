@@ -154,7 +154,7 @@
 <body>
 
 
-    <div>
+    <div id="mainContent">
         <!-- Navbar -->
 
         <nav class="navbar navbar-default">
@@ -262,7 +262,7 @@
 
     <!-- Plan de formation -->
 
-    <div class="container-fluid bg-2 text-center planf">
+    <div class="container-fluid bg-2 text-center planf" id="planf">
         <h3>Plan de formation - Technicien en informatique</h3>
 
         <div class="col-sm-3 trimestre">
@@ -439,8 +439,24 @@
         }, 1);
     }
 
+    var formationPlanned = false;
     function planFormationButtonClicked() {
         console.log("*Click noise*");
+
+        if (formationPlanned) {
+            document.getElementById("mainContent").style.display = 'block';
+            document.getElementById("planf").style.display = 'none';
+
+            formationPlanned = false;
+        } else {
+            document.getElementById("mainContent").style.display = 'none';
+            document.getElementById("planf").style.display = 'block';
+
+            formationPlanned = true;
+        }
+
+        console.log(formationPlanned);
+
     }
 </script>
 
