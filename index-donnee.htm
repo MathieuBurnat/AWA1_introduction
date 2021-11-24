@@ -142,11 +142,22 @@
             height: 400px;
         }
 
-        #planButton {
+        #planButtonCross {
+            background-color: #cf2c26;
+            border: none;
+            float: right;
+            display: none;
+            margin-top: 2.5em;
+            margin-right: 1.5em;
+        }
+
+        #planButtonText {
             background-color: #cf2c26;
             height: 2em;
             border: none;
-            float: right;
+            position: absolute;
+            right: 0;
+            bottom: 0;
         }
     </style>
 </head>
@@ -258,10 +269,10 @@
         </div>
     </div>
 
-    <button id="planButton" onclick="planFormationButtonClicked()">Plan de formation</button>
+    <button id="planButtonCross" onclick="planFormationButtonClicked()">X</button>
+    <button id="planButtonText" onclick="planFormationButtonClicked()">Plan de formation</button>
 
     <!-- Plan de formation -->
-
     <div class="container-fluid bg-2 text-center planf" id="planf">
         <h3>Plan de formation - Technicien en informatique</h3>
 
@@ -446,17 +457,19 @@
             // Views
             document.getElementById("mainContent").style.display = 'block';
             document.getElementById("planf").style.display = 'none';
-
+            
             // Button
-            document.getElementById("planButton").innerHTML  = 'Plan de formation';
-  
+            document.getElementById("planButtonText").style.display = 'block';
+            document.getElementById("planButtonCross").style.display = 'none';
+
         } else {
             // Views
             document.getElementById("mainContent").style.display = 'none';
             document.getElementById("planf").style.display = 'block';
-            
+
             // Button
-            document.getElementById("planButton").innerHTML  = 'x';
+            document.getElementById("planButtonText").style.display = 'none';
+            document.getElementById("planButtonCross").style.display = 'block';
         }
 
         //Change the formationPlanned's state
