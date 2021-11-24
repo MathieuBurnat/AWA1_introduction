@@ -457,7 +457,7 @@
             // Views
             document.getElementById("mainContent").style.display = 'block';
             document.getElementById("planf").style.display = 'none';
-            
+
             // Button
             document.getElementById("planButtonText").style.display = 'block';
             document.getElementById("planButtonCross").style.display = 'none';
@@ -470,6 +470,18 @@
             // Button
             document.getElementById("planButtonText").style.display = 'none';
             document.getElementById("planButtonCross").style.display = 'block';
+
+            /*
+            gsap.fromTo("#planf", {
+                x: -500,
+                opacity: 0,
+                duration: 1,
+            }, {
+                x: 0,
+                opacity: 1,
+                display: "block"
+
+            });*/
         }
 
         //Change the formationPlanned's state
