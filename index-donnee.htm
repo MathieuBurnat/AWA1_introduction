@@ -471,17 +471,10 @@
             document.getElementById("planButtonText").style.display = 'none';
             document.getElementById("planButtonCross").style.display = 'block';
 
-            /*
-            gsap.fromTo("#planf", {
-                x: -500,
-                opacity: 0,
-                duration: 1,
-            }, {
-                x: 0,
-                opacity: 1,
-                display: "block"
+            TweenLite.defaultEase = Power0.easeNone;
+            TweenMax.set(".planf", { transformOrigin: "100% 50%" });
+            TweenMax.from(".planf", 2.2, { width: "0px", ease: Power0.easeNone, repeat: 0, repeatDelay: 2 })
 
-            });*/
         }
 
         //Change the formationPlanned's state
